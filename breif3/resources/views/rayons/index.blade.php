@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Liste des Catégories</title>
+    <title>Liste des Rayons</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -29,28 +29,28 @@
 <body>
 
 <div class="container mt-5">
-    <h1>Liste des Catégories</h1>
-    <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Ajouter une Catégorie</a>
+    <h1>Liste des Rayons</h1>
+    <a href="{{ route('rayons.create') }}" class="btn btn-primary mb-3">Ajouter un Rayon</a>
     <table class="table table-bordered">
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th>Libellé</th>
-                <th>Description</th>
+                <th>Partie</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $categorie)
+            @foreach($rayons as $rayon)
                 <tr>
-                    <td>{{ $categorie->libelle }}</td>
-                    <td>{{ $categorie->description }}</td>
+                    <td>{{ $rayon->libelle }}</td>
+                    <td>{{ $rayon->partie }}</td>
                     <td>
-                        <a href="{{ route('categories.show', $categorie->id) }}" class="btn btn-info btn-sm">Détails</a>
-                        <a href="{{ route('categories.edit', $categorie->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                        <form action="{{ route('categories.destroy', $categorie->id) }}" method="POST" class="d-inline">
+                        <a href="{{ route('rayons.show', $rayon->id) }}" class="btn btn-info">Détails</a>
+                        <a href="{{ route('rayons.edit', $rayon->id) }}" class="btn btn-warning">Modifier</a>
+                        <form action="{{ route('rayons.destroy', $rayon->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </td>
                 </tr>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Détails de la Catégorie</title>
+    <title>Modifier le Rayon</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -29,16 +29,22 @@
 <body>
 
 <div class="container mt-5">
-    <h1>Détails de la Catégorie</h1>
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            {{ $categorie->libelle }}
+    <h1>Modifier le Rayon</h1>
+    <form action="{{ route('rayons.update', $rayon->id) }}" method="POST" class="row g-3">
+        @csrf
+        @method('PUT')
+        <div class="col-md-12">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" value="{{ $rayon->libelle }}" required>
         </div>
-        <div class="card-body">
-            <p class="card-text"><strong>Description: </strong>{{ $categorie->description }}</p>
-            <a href="{{ route('categories.index') }}" class="btn btn-secondary">Retour</a>
+        <div class="col-md-12">
+            <label for="partie" class="form-label">Partie</label>
+            <input type="text" class="form-control" id="partie" name="partie" value="{{ $rayon->partie }}" required>
         </div>
-    </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary mt-3">Mettre à Jour</button>
+        </div>
+    </form>
 </div>
 
 <!-- Bootstrap JS -->

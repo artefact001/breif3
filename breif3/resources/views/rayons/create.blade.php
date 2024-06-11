@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ajouter une Catégorie</title>
+    <title>Ajouter un Rayon</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -29,16 +29,16 @@
 <body>
 
 <div class="container mt-5">
-    <h1>Ajouter une Catégorie</h1>
-    <form action="{{ route('categories.store') }}" method="POST" class="row g-3">
+    <h1>Ajouter un Rayon</h1>
+    <form action="{{ route('rayons.store') }}" method="POST" class="row g-3">
         @csrf
         <div class="col-md-12">
             <label for="libelle" class="form-label">Libellé</label>
             <input type="text" class="form-control" id="libelle" name="libelle" required>
         </div>
         <div class="col-md-12">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            <label for="partie" class="form-label">Partie</label>
+            <input type="text" class="form-control" id="partie" name="partie" required>
         </div>
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
